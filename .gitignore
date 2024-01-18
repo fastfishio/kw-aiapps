@@ -1,0 +1,4 @@
+venv
+secret-key.json
+**/__pycache__
+docs
