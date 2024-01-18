@@ -7,6 +7,7 @@ from langchain_community.document_loaders import (
     DirectoryLoader,
     UnstructuredHTMLLoader,
     GCSDirectoryLoader,
+    TextLoader,
 )
 
 from utils import consts, config
@@ -26,6 +27,8 @@ class Client:
         loader_cls = PyPDFLoader
         if file_type == consts.FileType.HTML.value:
             loader_cls = UnstructuredHTMLLoader
+        elif file_type == consts.FileType.TXT.value:
+            loader_cls = TextLoader
 
         loader = GCSDirectoryLoader(
             project_name=self.project_id,

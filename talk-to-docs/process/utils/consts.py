@@ -6,6 +6,7 @@ class FileType(Enum):
     CSV = "CSV"
     JSON = "JSON"
     MP4 = "MP4"
+    TXT = "txt"
 
 
 class DocSplitType(Enum):

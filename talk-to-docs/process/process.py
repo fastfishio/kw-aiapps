@@ -16,7 +16,7 @@ def process():
 
     method_start = time.time()
 
-    if settings.file_type in [consts.FileType.HTML.value, consts.FileType.PDF.value]:
+    if settings.file_type in [consts.FileType.HTML.value, consts.FileType.PDF.value, consts.FileType.TXT.value]:
 
         processor = doc_process.Client(settings=settings)
 
