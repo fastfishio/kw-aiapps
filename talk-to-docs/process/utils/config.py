@@ -28,3 +28,7 @@ class Settings(BaseSettings):
 
     # Uploading local dir of json files to GCS
     local_json_dir_path: str = "json-docs"
+
+    # Local JSONL file to multiple text file
+    local_jsonl_file_path: str = "docs/jsonl_file.json"
+    jsonl_to_txt_output_dir: str = "docs/jsonl_to_txt"

@@ -1,4 +1,4 @@
 venv
-json-docs
 secret-key.json
 **/__pycache__
+docs
