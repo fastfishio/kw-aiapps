@@ -5,12 +5,12 @@ from utils import config
 settings = config.Settings()
 
 
-def upload_lc_json_docs_to_gcs():
+def upload_lc_dir_to_gcs():
     method_start = time.time()
 
     dl = data_loader.Client(settings=settings)
-    dl.upload_lc_json_docs_to_gcs(
-        dir_path=settings.local_json_dir_path,
+    dl.upload_lc_dir_to_gcs(
+        dir_path=settings.upload_local_dir_path,
         bucket_name=settings.docs_bucket,
     )
 
@@ -19,4 +19,4 @@ def upload_lc_json_docs_to_gcs():
 
 
 if __name__ == "__main__":
-    upload_lc_json_docs_to_gcs()
+    upload_lc_dir_to_gcs()

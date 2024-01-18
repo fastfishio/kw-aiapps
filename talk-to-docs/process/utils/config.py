@@ -26,8 +26,8 @@ class Settings(BaseSettings):
     doc_collection:str="docs_col"
     doc_processing_batch_size:int=5
 
-    # Uploading local dir of json files to GCS
-    local_json_dir_path: str = "json-docs"
+    # Uploading local dir of files to GCS
+    upload_local_dir_path: str = "docs/jsonl_to_txt"
 
     # Local JSONL file to multiple text file
     local_jsonl_file_path: str = "docs/jsonl_file.json"
