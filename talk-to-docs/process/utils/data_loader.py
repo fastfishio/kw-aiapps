@@ -8,6 +8,7 @@ from langchain_community.document_loaders import (
     UnstructuredHTMLLoader,
     GCSDirectoryLoader,
 )
+from typing import List
 
 from utils import consts, config
 
@@ -113,3 +114,8 @@ class Client:
         for file in os.listdir(dir_path):
             if os.path.isfile(os.path.join(dir_path, file)):
                 yield file
+
+    def upload_lc_json_docs_to_gcs(self, dir_path: str,  bucket_name: str) -> List[Document]:
+        for file_name in self.get_files_in_dir(dir_path):
+            file_path = f"{dir_path}/{file_name}"
+            self.upload_local_to_gcs(file_path=file_path, bucket_name=bucket_name, blob_name=file_name)

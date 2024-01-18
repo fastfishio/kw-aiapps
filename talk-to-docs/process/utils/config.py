@@ -22,6 +22,9 @@ class Settings(BaseSettings):
 
 
     #Documents Only settings
-    docs_bucket:str ="my-bucket-name"
+    docs_bucket:str ="kw-filtered-files"
     doc_collection:str="docs_col"
     doc_processing_batch_size:int=5
+
+    # Uploading local dir of json files to GCS
+    local_json_dir_path: str = "json-docs"
