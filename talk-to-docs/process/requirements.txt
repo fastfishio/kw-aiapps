@@ -16,3 +16,4 @@ bs4
 lxml
 trafilatura
 unstructured
+google-cloud-secret-manager

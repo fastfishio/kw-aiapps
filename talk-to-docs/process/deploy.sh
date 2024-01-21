@@ -1,16 +1,23 @@
 export GCP_PROJECT_ID=''
-export GCP_LOCATION='us-central1'
+export GCP_LOCATION='me-central1'
 export DOCS_BUCKET=''
 
-AR_REPO='aidemos-repo' 
-JOB_NAME='process-job'
-JOB_MEMORY='4G'
+export DB_HOST_SECRET_NAME=''
+export DB_PASSWORD_SECRET_NAME=''
+export DB_INSTANCE=''
+export DB_NAME=''
+export DB_USER=''
+export SERVICE_ACCOUNT=''
+
+AR_REPO='kw-repo' 
+JOB_NAME='process-job-kw'
+JOB_MEMORY='4Gi'
 JOB_CPU=8
 JOB_MAX_RETRIES=0
 PROCESS_NUM_TASKS=10
-TASK_TIMEOUT='30m'
+TASK_TIMEOUT='5h'
 
-TASK_PARALLELISM=2
+TASK_PARALLELISM=4
 
 IMAGE_NAME="$GCP_LOCATION-docker.pkg.dev/$GCP_PROJECT_ID/$AR_REPO/$JOB_NAME"
 
@@ -48,7 +55,8 @@ gcloud run jobs create $JOB_NAME --execute-now \
     --parallelism $TASK_PARALLELISM \
     --cpu $JOB_CPU \
     --memory $JOB_MEMORY \
-    --set-env-vars=DOCS_BUCKET=$DOCS_BUCKET
+    --set-env-vars=PROJECT_ID=$GCP_PROJECT_ID,DOCS_BUCKET=$DOCS_BUCKET,DB_HOST_SECRET_NAME=$DB_HOST_SECRET_NAME,DB_PASSWORD_SECRET_NAME=$DB_PASSWORD_SECRET_NAME,DB_INSTANCE=$DB_INSTANCE,DB_NAME=$DB_NAME,DB_USER=$DB_USER \
+    --service-account=$SERVICE_ACCOUNT
 
 
 
