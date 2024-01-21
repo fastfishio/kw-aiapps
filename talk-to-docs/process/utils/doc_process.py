@@ -43,6 +43,8 @@ class Client:
         print(f"{len(chunks)} records inserted to vector database")
 
     def _split_docs(self, docs):
+        if self.file_type == consts.FileType.TXT.value:
+            return docs  # no splitting
 
 
         chunk_docs = []
