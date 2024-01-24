@@ -102,6 +102,17 @@ class Client:
             blob_name
         ).upload_from_filename(file_path)
 
+    def upload_string_to_gcs(
+        self,
+        content: str,
+        bucket_name: str,
+        blob_name: str,
+    ):
+        print("uploading", content, bucket_name, blob_name)
+        storage.Client(project=self.project_id).bucket(bucket_name).blob(
+            blob_name
+        ).upload_from_string(content)
+
     def get_files_in_dir(self, dir_path: str):
         for file in os.listdir(dir_path):
             if os.path.isfile(os.path.join(dir_path, file)):
